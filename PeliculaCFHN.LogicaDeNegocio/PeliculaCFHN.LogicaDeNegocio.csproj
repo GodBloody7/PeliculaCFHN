@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PeliculaCFHN.AccesoADatos\PeliculaCFHN.AccesoADatos.csproj" />
+    <ProjectReference Include="..\PeliculaCFHN.EntidadeDeNegocio\PeliculaCFHN.EntidadeDeNegocio.csproj" />
+  </ItemGroup>
+
+</Project>
