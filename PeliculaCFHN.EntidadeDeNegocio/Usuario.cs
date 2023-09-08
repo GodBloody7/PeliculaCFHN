@@ -19,20 +19,20 @@ namespace PeliculaCFHN.EntidadeDeNegocio
         public int IdRol { get; set; }
 
         [Required(ErrorMessage = "Nombre es obligatorio")]
-        [StringLength(00, ErrorMessage = "Maximo 00 caracteres")]
+        [StringLength(30, ErrorMessage = "Maximo 30 caracteres")]
         public string Nombre { get; set; }
 
         [Required(ErrorMessage = "Apellido es obligatorio")]
-        [StringLength(00, ErrorMessage = "Maximo 00 caracteres")]
+        [StringLength(30, ErrorMessage = "Maximo 30 caracteres")]
         public string Apellido { get; set; }
 
         [Required(ErrorMessage = "Login es obligatorio")]
-        [StringLength(00, ErrorMessage = "Maximo 00 caracteres")]
+        [StringLength(25, ErrorMessage = "Maximo 25 caracteres")]
         public string Login { get; set; }
 
         [Required(ErrorMessage = "Password es obligatorio")]
         [DataType(DataType.Password)]
-        [StringLength(00, ErrorMessage = "Password debe estar entre 5 a 32 carcateres", MinimumLength = 5)]
+        [StringLength(32, ErrorMessage = "Password debe estar entre 5 a 32 carcateres", MinimumLength = 5)]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Estatus es obligatorio")]
@@ -48,7 +48,7 @@ namespace PeliculaCFHN.EntidadeDeNegocio
         public int Top_Aux { get; set; }
         [NotMapped]
         [Required(ErrorMessage = "Confirmar el password")]
-        [StringLength(00, ErrorMessage = "Password debe estar entre 5 a 32 carcateres", MinimumLength = 5)]
+        [StringLength(32, ErrorMessage = "Password debe estar entre 5 a 32 carcateres", MinimumLength = 5)]
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Password y confirmar deben ser iguales")]
         [Display(Name = "Configurar Password")]
