@@ -11,13 +11,13 @@ namespace PeliculaCFHN.EntidadeDeNegocio
     public class Genero
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
         [Required(ErrorMessage = "Nombre es obligatorio")]
         [StringLength(00, ErrorMessage = "Maximo 00 caracteres")]
         public string Nombre { get; set; }
 
         [NotMapped]
-        public string Top_Aux { get; set; }
+        public int Top_Aux { get; set; }
 
     }
 }
