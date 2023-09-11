@@ -19,7 +19,9 @@ namespace PeliculaCFHN.AccesoADatos
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Data Source=henryramos;Initial Catalog=Peliculas;Integrated Security=True");
+            //optionsBuilder.UseSqlServer(@"Data Source=henryramos;Initial Catalog=Peliculas;Integrated Security=True");
+            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-NFDMETJ\SQLEXPRESS;Initial Catalog=Peliculas;Integrated Security=True");
+
         }
     }
 }
