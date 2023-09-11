@@ -74,7 +74,7 @@ namespace PeliculaCFHN.AccesoADatos.Tests
             director.Apellido = "i";
             director.FechaNacimiento = "9";
             director.Nacionalidad = "s";
-            director.Imagen = "p";
+         
             director.Top_Aux = 10;
             var resultDirectores = await DirectorDAL.BuscarAsync(director);
             Assert.AreNotEqual(0, resultDirectores.Count);

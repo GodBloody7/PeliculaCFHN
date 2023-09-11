@@ -17,23 +17,21 @@ namespace PeliculaCFHN.EntidadeDeNegocio
         [StringLength(30, ErrorMessage = "Maximo 30 caracteres")]
 
         public string Nombre { get; set; }
+
         [Required(ErrorMessage = "Nombre es obligatorio")]
         [StringLength(30, ErrorMessage = "Maximo 30 caracteres")]
-
         public string Apellido { get; set; }
 
         [Required(ErrorMessage = "Nombre es obligatorio")]
         [StringLength(15, ErrorMessage = "Maximo 15 caracteres")]
-
         public string FechaNacimiento { get; set; }
+
         [Required(ErrorMessage = "Nombre es obligatorio")]
         [StringLength(100, ErrorMessage = "Maximo 100 caracteres")]
-
         public string Nacionalidad { get; set; }
 
         [Required(ErrorMessage = "Nombre es obligatorio")]
-        [StringLength(00, ErrorMessage = "Maximo 00 caracteres")]
-
+        [StringLength(maximumLength:2000, ErrorMessage = "Maximo 2000 caracteres")]
         public string Imagen { get; set; }
         [NotMapped]
         public int Top_Aux { get; set; }
