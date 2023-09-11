@@ -13,7 +13,7 @@ namespace PeliculaCFHN.EntidadeDeNegocio
         [Key]
         public string Id { get; set; }
         [Required(ErrorMessage = "Nombre es obligatorio")]
-        [StringLength(00, ErrorMessage = "Maximo 00 caracteres")]
+        [StringLength(25, ErrorMessage = "Maximo 25 caracteres")]
         public string Nombre { get; set; }
 
         [NotMapped]
