@@ -11,13 +11,14 @@ namespace PeliculaCFHN.EntidadeDeNegocio
     public class Rol
     {
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
         [Required(ErrorMessage = "Nombre es obligatorio")]
         [StringLength(25,ErrorMessage ="Maximo 25 caracteres")]
         public string Nombre { get; set; }
 
         [NotMapped]
-        public string Top_Aux { get; set; }
-        public List<Usuario> Usuarios { get; set; }
+        public int Top_Aux { get; set; }
+
+        public List<Usuario> Usuario { get; set; }
     }
 }

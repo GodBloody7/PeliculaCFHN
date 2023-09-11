@@ -32,7 +32,11 @@ namespace PeliculaCFHN.EntidadeDeNegocio
 
         [Required(ErrorMessage = "Password es obligatorio")]
         [DataType(DataType.Password)]
+<<<<<<< HEAD
         [StringLength(32, ErrorMessage = "Password debe estar entre 5 a 32 caracteres", MinimumLength = 5)]
+=======
+        [StringLength(32, ErrorMessage = "Password debe estar entre 5 a 32 carcateres", MinimumLength = 5)]
+>>>>>>> 940e2f8ea316e58af5d1d29b565ff8cc4a95ae14
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Estatus es obligatorio")]
@@ -48,7 +52,11 @@ namespace PeliculaCFHN.EntidadeDeNegocio
         public int Top_Aux { get; set; }
         [NotMapped]
         [Required(ErrorMessage = "Confirmar el password")]
+<<<<<<< HEAD
         [StringLength(32, ErrorMessage = "Password debe estar entre 5 a 32 caracteres", MinimumLength = 5)]
+=======
+        [StringLength(32, ErrorMessage = "Password debe estar entre 5 a 32 carcateres", MinimumLength = 5)]
+>>>>>>> 940e2f8ea316e58af5d1d29b565ff8cc4a95ae14
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Password y confirmar deben ser iguales")]
         [Display(Name = "Configurar Password")]
