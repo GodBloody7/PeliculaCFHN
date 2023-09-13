@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace PeliculaCFHN.EntidadeDeNegocio
 {
@@ -19,6 +20,7 @@ namespace PeliculaCFHN.EntidadeDeNegocio
         [NotMapped]
         public int Top_Aux { get; set; }
 
+        [ValidateNever]
         public List<Pelicula> Pelicula { get; set; }
     }
 }
