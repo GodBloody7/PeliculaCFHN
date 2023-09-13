@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -36,6 +37,7 @@ namespace PeliculaCFHN.EntidadeDeNegocio
 
         [NotMapped]
         public int Top_Aux { get; set; }
+        [ValidateNever]
 
         public List<Pelicula> Pelicula { get; set; }
 
