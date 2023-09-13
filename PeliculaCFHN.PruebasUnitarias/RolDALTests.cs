@@ -41,8 +41,8 @@ namespace PeliculaCFHN.AccesoADatos.Tests
         {
             var rol = new Rol();
             rol.Id = rolInicial.Id;
-            var result = await RolDAL.OptenerPorIdAsync(rol);
-            Assert.AreNotEqual(rol.Id, rolInicial.Id);
+            var resultRol = await RolDAL.OptenerPorIdAsync(rol);
+            Assert.AreEqual(rol.Id, resultRol.Id);
         }
 
         [TestMethod()]

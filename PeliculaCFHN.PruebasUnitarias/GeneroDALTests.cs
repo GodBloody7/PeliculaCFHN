@@ -41,8 +41,8 @@ namespace PeliculaCFHN.AccesoADatos.Tests
         {
             var genero = new Genero();
             genero.Id = generoInicial.Id;
-            var result = await GeneroDAL.OptenerPorIdAsync(genero);
-            Assert.AreNotEqual(genero.Id, generoInicial.Id);
+            var resultGenero = await GeneroDAL.OptenerPorIdAsync(genero);
+            Assert.AreEqual(genero.Id, resultGenero.Id);
         }
 
         [TestMethod()]
