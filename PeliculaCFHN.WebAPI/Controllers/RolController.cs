@@ -8,6 +8,7 @@ using System.Text.Json;
 
 using PeliculaCFHN.LogicaDeNegocio;
 using PeliculaCFHN.EntidadeDeNegocio;
+using Microsoft.AspNetCore.Authorization;
 
 namespace PeliculaCFHN.WebAPI.Controllers
 {
