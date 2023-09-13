@@ -16,6 +16,14 @@ using System.Threading.Tasks;
 
 
 
+﻿using PeliculaCFHN.WebAPI.Auth;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Text;
+
 namespace PeliculaCFHN.WebAPI
 {
     public class Startup
@@ -24,72 +32,97 @@ namespace PeliculaCFHN.WebAPI
         {
             Configuration = configuration;
         }
+
         public IConfiguration Configuration { get; }
 
-        public void ConfigureService(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
 
-                  services.AddCors();// agregar los cors
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PeliculasCFHN.WebAPI", Version = "v1" });
 
-                  services.AddControllers();
-                  services.AddSwaggerGen(c =>
-                  {
+                var jwtSecurityScheme = new OpenApiSecurityScheme
+                {
+                    Scheme = "bearer",
+                    BearerFormat = "JWT",
+                    Name = "JWT Authentication",
+                    In = ParameterLocation.Header,
+                    Type = SecuritySchemeType.Http,
+                    Description = "Ingresar tu token de JWT Authentication",
 
-                            c.SwaggerDoc("v1", new OpenApiInfo { Title = "PeliculaCFHN.WebAPI", Version = "v1" });
+                    Reference = new OpenApiReference
+                    {
+                        Id = JwtBearerDefaults.AuthenticationScheme,
+                        Type = ReferenceType.SecurityScheme
+                    }
+                };
+                c.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement { { jwtSecurityScheme, Array.Empty<string>() } });
+            });
 
+            services.AddControllers()
+                .AddJsonOptions(options =>
+                {
+                    options.JsonSerializerOptions.IgnoreNullValues = true;
+                    options.JsonSerializerOptions.WriteIndented = true;
+                });
 
-                            var jwtSecurityScheme = new OpenApiSecurityScheme
-                            {
-                                   Scheme = "bearer",
-                                   BearerFormat = "JWT",
-                                   Name = "JWT Authentication",
-                                   In = ParameterLocation.Header,
-                                   Type = SecuritySchemeType.Http,
-                                   Description = "Ingresar tu token de JWT Authentication",
+            #region Seguridad por token JWT
+            var key = "PeliculasCFHN.Demo";
 
+            services
+                .AddAuthentication(x =>
+                {
+                    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(x =>
+                {
+                    x.RequireHttpsMetadata = false;
+                    x.SaveToken = true;
+                    x.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(key)),
+                        ValidateAudience = false,
+                        ValidateIssuerSigningKey = true,
+                        ValidateIssuer = false
+                    };
+                });
 
-
-                                Reference = new OpenApiReference
-                                {
-                                      Id = JwtBearerDefaults.AuthenticationScheme,
-                                      Type = ReferenceType.SecurityScheme
-                                }
-
-                            };
-
-                             c.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
-                             c.AddSecurityRequirement(new OpenApiSecurityRequirement { { jwtSecurityScheme, Array.Empty<string>() } });
-
-              
-
-
-
-
-
-           });
-
+            services.AddSingleton<IJwtAuthenticationService>(new JwtAuthenticationService(key));
+            #endregion
         }
 
-
-       public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.UseCors(options =>
+            {
+                options.WithOrigins("*");
+                options.AllowAnyMethod();
+                options.AllowAnyHeader();
+            });
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PeliculaCFHN.WebAPI v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PeliculasCFHN.WebAPI v1"));
             }
+
             app.UseHttpsRedirection();
 
-
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-
-            }
+                endpoints.MapControllers();
+            });
         }
 
     }

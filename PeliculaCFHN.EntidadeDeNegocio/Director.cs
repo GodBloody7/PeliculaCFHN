@@ -33,8 +33,11 @@ namespace PeliculaCFHN.EntidadeDeNegocio
         [Required(ErrorMessage = "Nombre es obligatorio")]
         [StringLength(maximumLength:2000, ErrorMessage = "Maximo 2000 caracteres")]
         public string Imagen { get; set; }
+
         [NotMapped]
         public int Top_Aux { get; set; }
+
+        public List<Pelicula> Pelicula { get; set; }
 
     }
 }

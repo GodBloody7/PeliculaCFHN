@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\PeliculaCFHN.AccesoADatos\PeliculaCFHN.AccesoADatos.csproj" />
     <ProjectReference Include="..\PeliculaCFHN.EntidadeDeNegocio\PeliculaCFHN.EntidadeDeNegocio.csproj" />
+    <ProjectReference Include="..\PeliculaCFHN.LogicaDeNegocio\PeliculaCFHN.LogicaDeNegocio.csproj" />
   </ItemGroup>
 
 </Project>
