@@ -13,7 +13,7 @@ namespace PeliculaCFHN.AccesoADatos.Tests
     public class DirectorDALTests
     {
 
-        private static Director directorInicial = new Director { Id = 2 };
+        private static Director directorInicial = new Director { Id = 1 };
 
         [TestMethod()]
         public async Task T1CrearAsyncTest()
@@ -70,10 +70,10 @@ namespace PeliculaCFHN.AccesoADatos.Tests
         public async Task T5BuscarAsyncTest()
         {
             var director  = new  Director();
-            director.Nombre = "A";
-            director.Apellido = "i";
-            director.FechaNacimiento = "9";
-            director.Nacionalidad = "s";
+            director.Nombre = "e";
+            director.Apellido = "o";
+          //  director.FechaNacimiento = "9";
+           // director.Nacionalidad = "s";
          
             director.Top_Aux = 10;
             var resultDirectores = await DirectorDAL.BuscarAsync(director);

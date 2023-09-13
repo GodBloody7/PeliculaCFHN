@@ -3,6 +3,10 @@ using PeliculaCFHN.EntidadeDeNegocio;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace PeliculaCFHN.WebAPI.Auth
 {
