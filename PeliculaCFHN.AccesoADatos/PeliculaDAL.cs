@@ -123,8 +123,7 @@ namespace PeliculaCFHN.AccesoADatos
             using (var bdContexto = new BDContexto())
             {
                 var select = bdContexto.Pelicula.AsQueryable();
-                select = QuerySelect(select, pPelicula).Include(p => p.Genero).AsQueryable();
-                select = QuerySelect(select, pPelicula).Include(p => p.Director).AsQueryable();
+                select = QuerySelect(select, pPelicula).Include(p => p.Genero).Include(p => p.Director).AsQueryable();
                 peliculas = await select.ToListAsync();
             }
 
