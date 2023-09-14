@@ -52,7 +52,7 @@ namespace PeliculaCFHN.EntidadeDeNegocio
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "Password y confirmar deben ser iguales")]
         [Display(Name = "Configurar Password")]
-        public  string confirmarPassword_aux { get; set; }
+        public  string ConfirmPassword_aux { get; set; }
 
 
     }
