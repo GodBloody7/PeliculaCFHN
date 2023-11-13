@@ -16,12 +16,14 @@ namespace PeliculaCFHN.WebAPI.Controllers
         private PeliculaBL peliculaBL = new PeliculaBL();
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IEnumerable<Pelicula>> Get()
         {
             return await peliculaBL.ObtenerTodosAsync();
         }
 
         [HttpGet("{id}")]
+        [AllowAnonymous]
         public async Task<Pelicula> Get(int id)
         {
             Pelicula pelicula = new Pelicula();
@@ -77,6 +79,7 @@ namespace PeliculaCFHN.WebAPI.Controllers
         }
 
         [HttpPost("Buscar")]
+        [AllowAnonymous]
         public async Task<List<Pelicula>> Buscar([FromBody] object pPelicula)
         {
             var option = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };

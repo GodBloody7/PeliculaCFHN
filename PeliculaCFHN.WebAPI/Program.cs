@@ -13,7 +13,7 @@ builder.Services.AddCors(); // habilitar los cors
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "PeñiculaCFHN", Version = "v1" });
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "PeliculaCFHN", Version = "v1" });
 
     // *** Incluir  JWT Authentication ***
     var jwtSecurityScheme = new OpenApiSecurityScheme
