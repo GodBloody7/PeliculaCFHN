@@ -37,7 +37,7 @@ namespace PeliculaCFHN.EntidadeDeNegocio
 
         [NotMapped]
         public int Top_Aux { get; set; }
-        [ValidateNever]
+       [ValidateNever]
 
         public List<Pelicula> Pelicula { get; set; }
 
