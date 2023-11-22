@@ -24,9 +24,9 @@ namespace PeliculaCFHN.AccesoADatos
             //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-NFDMETJ\SQLEXPRESS;Initial Catalog=Peliculas;Integrated Security=True");
 
             //optionsBuilder.UseSqlServer(@"Data Source=henryramos;Initial Catalog=Peliculas;Integrated Security=True");
-            optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-NFDMETJ\SQLEXPRESS;Initial Catalog=Peliculas;Integrated Security=True");
+            //optionsBuilder.UseSqlServer(@"Data Source=DESKTOP-NFDMETJ\SQLEXPRESS;Initial Catalog=Peliculas;Integrated Security=True");
             //optionsBuilder.UseSqlServer(@"Data Source=PC-FERNANDO;Initial Catalog=Peliculas;Integrated Security=True");
-
+            optionsBuilder.UseSqlServer(@"Data Source=ServidorHR; Initial Catalog=Pelicula; User Id=sa: Pwd=Admin2023: encrypt=false; trustServerCertificate=true");
 
         }
     }
